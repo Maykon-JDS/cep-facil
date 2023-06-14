@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #resultado-consulta{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #resultado-consulta input{
+            max-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+
+
+        function viacep() {
+            let cep = document.querySelector("#cep")
+            let bairro = document.querySelector('#bairro')
+            let localidade = document.querySelector('#localidade')
+            let uf = document.querySelector('#uf')
+
+
+
+            fetch(`https://viacep.com.br/ws/${cep.value}/json/`).then((response) => response.json()).then(function (response) {
+                bairro.value = response.bairro
+                localidade.value = response.localidade
+                uf.value = response.uf
+            }).catch(function () {
+                bairro.value = "Não Encontrado"
+                localidade.value = "Não Encontrado"
+                uf.value = "Não Encontrado"
+
+
+            })
+        }
+
+
+
+    </script>
+    <div id="painel-consulta">
+        <label for="cep">CEP</label>
+        <input type="text" id="cep">
+        <button onclick="viacep()">CONSULTAR</button>
+    </div>
+    <hr>
+    <div id="resultado-consulta" >
+        <label for="bairro">BAIRRO</label>
+        <input type="text" id="bairro" value="" disabled>
+        <label for="localidade">LOCALIDADE</label>
+        <input type="text" id="localidade" value="" disabled>
+        <label for="uf">UF</label>
+        <input type="text" id="uf" value="" disabled>
+    </div>
+</body>
+
+</html>
