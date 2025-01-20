@@ -1,0 +1,19 @@
+{
+  "name": "cep-facil",
+  "version": "1.0.0",
+  "description": "Um sistema de endereço pelo CEP",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc",
+    "tsc:watch": "npx tsc -w --pretty",
+    "start": "node ./project/public/index.js",
+    "all": "npm run build && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
