@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CEP FÁCIL</title>
     <style>
         #resultado-consulta{
             display: flex;
@@ -15,41 +15,13 @@
             max-width: 200px;
         }
     </style>
+    <link rel="modulepreload" href="./main.js" />
 </head>
-
 <body>
-    <script>
-
-
-
-        function viacep() {
-            let cep = document.querySelector("#cep")
-            let bairro = document.querySelector('#bairro')
-            let localidade = document.querySelector('#localidade')
-            let uf = document.querySelector('#uf')
-
-
-
-            fetch(`https://viacep.com.br/ws/${cep.value}/json/`).then((response) => response.json()).then(function (response) {
-                bairro.value = response.bairro
-                localidade.value = response.localidade
-                uf.value = response.uf
-            }).catch(function () {
-                bairro.value = "Não Encontrado"
-                localidade.value = "Não Encontrado"
-                uf.value = "Não Encontrado"
-
-
-            })
-        }
-
-
-
-    </script>
     <div id="painel-consulta">
         <label for="cep">CEP</label>
         <input type="text" id="cep">
-        <button onclick="viacep()">CONSULTAR</button>
+        <button id="btn-consultar">CONSULTAR</button>
     </div>
     <hr>
     <div id="resultado-consulta" >
@@ -60,6 +32,7 @@
         <label for="uf">UF</label>
         <input type="text" id="uf" value="" disabled>
     </div>
+    <script src="./main.js" type="module"></script>
 </body>
 
 </html>

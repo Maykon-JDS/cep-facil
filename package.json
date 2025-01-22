@@ -3,17 +3,28 @@
   "version": "1.0.0",
   "description": "Um sistema de endereço pelo CEP",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "npx tsc",
-    "tsc:watch": "npx tsc -w --pretty",
+    "back:tsc:watch": "npx tsc -w --pretty --project tsconfig.server.json ",
+    "front:tsc:watch": "npx tsc -w --pretty --project tsconfig.web.json ",
+    "watch-all": "npm run back:tsc:watch && npm run front:tsc:watch",
+    "start:server": "node ./project/build/server/server.js",
     "start": "node ./project/public/index.js",
-    "all": "npm run build && npm run start"
+    "all": "npm run build && npm run start",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.7",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
