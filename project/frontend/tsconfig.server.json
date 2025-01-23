@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "composite": true,            // Habilita compilação em projetos dependentes
+      "module": "CommonJS",         // CommonJS para Node.js
+      "outDir": "./build/server", // Diretório de saída do backend
+      "rootDir": "./dev/server"  // Define a raiz do código fonte do backend
+    },
+    "include": ["./dev/server/**/*.ts"] // Inclui apenas arquivos do servidor
+  }
